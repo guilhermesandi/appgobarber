@@ -2,17 +2,18 @@ import React, { useRef, useCallback } from 'react';
 import {
   Image,
   View,
-  ScrollView,
   KeyboardAvoidingView,
+  ScrollView,
   Platform,
   TextInput,
   Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
+import * as Yup from 'yup';
+
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-import * as Yup from 'yup';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
@@ -140,8 +141,9 @@ const SignUp: React.FC = () => {
         </ScrollView>
       </KeyboardAvoidingView>
 
-      <BackToSignIn onPress={() => navigation.navigate('SignIn')}>
+      <BackToSignIn onPress={() => navigation.goBack()}>
         <Icon name="arrow-left" size={20} color="#fff" />
+
         <BackToSignInText>Voltar para logon</BackToSignInText>
       </BackToSignIn>
     </>
